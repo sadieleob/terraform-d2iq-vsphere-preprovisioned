@@ -1,0 +1,15 @@
+variable "vm_count" {
+        default = "3"
+}
+
+variable "vm_name" {
+        default = "konvoy-cp"
+}
+
+variable "ip_addr" {
+        default = "192.168.2.14"
+}
+
+variable "host_name" {
+        default = "konvoy-cp"
+}
