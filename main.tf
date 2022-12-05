@@ -12,7 +12,7 @@ data "vsphere_datacenter" "dc" {
 }
 
 data "vsphere_datastore" "datastore" {
- name          = "esxi-08-disk3"
+ name          = "${var.datastore}"
  datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -22,12 +22,12 @@ data "vsphere_resource_pool" "pool" {
 }
 
 data "vsphere_network" "network" {
-  name          = "Airgapped"
+  name          = "${var.network}"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
 data "vsphere_virtual_machine" "template" {
-  name = "sortega-base-os-centos79-konvoy1x"
+  name = "${var.template}"
   datacenter_id = "${data.vsphere_datacenter.dc.id}"
 }
 
@@ -66,11 +66,11 @@ resource "vsphere_virtual_machine" "vm1" {
         ipv4_netmask = "24"
       }
 
-      ipv4_gateway = "10.129.1.2"
+      ipv4_gateway = "${var.gateway}"
       dns_suffix_list = ["${var.vsphere_server}"]
       dns_server_list = ["8.8.8.8"]
     }
- }
+  }
 }
 
 resource "vsphere_virtual_machine" "vm2" {
@@ -136,7 +136,7 @@ resource "vsphere_virtual_machine" "vm2" {
         ipv4_netmask = "24"
       }
 
-      ipv4_gateway = "10.129.1.2"
+      ipv4_gateway = "${var.gateway}"
       dns_suffix_list = ["${var.vsphere_server}"]
       dns_server_list = ["8.8.8.8"]
     }
@@ -178,7 +178,7 @@ resource "vsphere_virtual_machine" "vm3" {
         ipv4_netmask = "24"
       }
 
-      ipv4_gateway = "10.129.1.2"
+      ipv4_gateway = "${var.gateway}"
       dns_suffix_list = ["${var.vsphere_server}"]
       dns_server_list = ["8.8.8.8"]
     }
@@ -248,7 +248,7 @@ resource "vsphere_virtual_machine" "vm4" {
         ipv4_netmask = "24"
       }
 
-      ipv4_gateway = "10.129.1.2"
+      ipv4_gateway = "${var.gateway}"
       dns_suffix_list = ["${var.vsphere_server}"]
       dns_server_list = ["8.8.8.8"]
     }
@@ -290,7 +290,7 @@ resource "vsphere_virtual_machine" "vm5" {
         ipv4_netmask = "24"
       }
 
-      ipv4_gateway = "10.129.1.2"
+      ipv4_gateway = "${var.gateway}"
       dns_suffix_list = ["${var.vsphere_server}"]
       dns_server_list = ["8.8.8.8"]
     }
@@ -359,7 +359,7 @@ resource "vsphere_virtual_machine" "vm6" {
         ipv4_netmask = "24"
       }
 
-      ipv4_gateway = "10.129.1.2"
+      ipv4_gateway = "${var.gateway}"
       dns_suffix_list = ["${var.vsphere_server}"]
       dns_server_list = ["8.8.8.8"]
     }
@@ -428,7 +428,7 @@ resource "vsphere_virtual_machine" "vm7" {
         ipv4_netmask = "24"
       }
 
-      ipv4_gateway = "10.129.1.2"
+      ipv4_gateway = "${var.gateway}"
       dns_suffix_list = ["${var.vsphere_server}"]
       dns_server_list = ["8.8.8.8"]
     }
