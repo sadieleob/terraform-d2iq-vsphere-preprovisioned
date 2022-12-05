@@ -1,5 +1,0 @@
-d2iq-env-terraform-vsphere-konvoy-esxi*
-terraform*
-.terraform
-output.tf
-.gitignore
