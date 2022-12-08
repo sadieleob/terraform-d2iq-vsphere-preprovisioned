@@ -1,0 +1,4 @@
+- hosts: all
+  tasks:
+    - name: Set default gateway
+      ansible.builtin.command: /sbin/ip route add default via 10.129.1.2 dev ens192
