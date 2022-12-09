@@ -120,10 +120,10 @@ resource "vsphere_virtual_machine" "w" {
   }
 }
 output "Control_Plane_Nodes_IP_Addresses" {
-value = [join(", ", vsphere_virtual_machine.cp.*.default_ip_address), vsphere_virtual_machine.cp.*.name]
+value = [join(", ", vsphere_virtual_machine.cp.*.default_ip_address), join(", ",vsphere_virtual_machine.cp.*.name)]
   description = "Control Plane Nodes IP addresses."
 }
 output "Worker_Nodes_IP_Addresses" {
-  value = [vsphere_virtual_machine.w.*.default_ip_address, vsphere_virtual_machine.w.*.name]
+  value = [join(", ",vsphere_virtual_machine.w.*.default_ip_address), join(", ",vsphere_virtual_machine.w.*.name)]
   description = "Worker Nodes IP addresses."
 }
