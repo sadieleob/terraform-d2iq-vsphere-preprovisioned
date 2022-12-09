@@ -119,9 +119,11 @@ resource "vsphere_virtual_machine" "w" {
     }
   }
 }
-output "vsphere_virtual_machine_cp_ips" {
-  value = vsphere_virtual_machine.cp.*.default_ip_address
+output "Control_Plane_Nodes_IP_Addresses" {
+value = [join(", ", vsphere_virtual_machine.cp.*.default_ip_address), vsphere_virtual_machine.cp.*.name]
+  description = "Control Plane Nodes IP addresses."
 }
-output "vsphere_virtual_machine_w_ips" {
-  value = vsphere_virtual_machine.w.*.default_ip_address
+output "Worker_Nodes_IP_Addresses" {
+  value = [vsphere_virtual_machine.w.*.default_ip_address, vsphere_virtual_machine.w.*.name]
+  description = "Worker Nodes IP addresses."
 }
