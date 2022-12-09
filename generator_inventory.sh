@@ -1,19 +1,5 @@
 #!/bin/sh env
 
-CP_COUNT=$(terraform output -json Control_Plane_Nodes_IP_Addresses | jq '.[1] | length')
-W_COUNT=$(terraform output -json Worker_Nodes_IP_Addresses | jq '.[1] | length')
-
-CP_IP_ADDR=$(terraform output -json Control_Plane_Nodes_IP_Addresses | jq '.[0]')
-W_IP_ADDR=$(terraform output -json Worker_Nodes_IP_Addresses | jq '.[0]')
-
-#echo $CP_COUNT
-#echo $W_COUNT
-#echo $CP_IP_ADDR
-#echo $W_IP_ADDR
-
-#j=0;for i in $CP_IP_ADDR; do export CONTROLPLANE$j=$i; ((j=j+1)); done
-
-#j=0;for i in $(terraform output -json Control_Plane_Nodes_IP_Addresses | tr -d "[]\""); do echo $i;echo CONTROLPLANE$j;((j=j+1));done
 j=0
 for i in $(terraform output -json Control_Plane_Nodes_IP_Addresses | tr -d "[]\""); do export CONTROLPLANE$j=$i;j=$((j+1));done
 k=0
