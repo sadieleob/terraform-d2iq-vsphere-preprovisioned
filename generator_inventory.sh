@@ -10,8 +10,11 @@ cat <<EOF > inventory.yaml
 control-plane:
   hosts:
     $CONTROLPLANE0:
+      node_pool: master
     $CONTROLPLANE1:
+      node_pool: master
     $CONTROLPLANE2:
+      node_pool: master
 
 node:
   hosts:
@@ -33,5 +36,14 @@ all:
     order: sorted
     version: v1beta1
 EOF
-
 envsubst < inventory.yaml
+
+cat <<EOF >> /etc/hosts
+$CONTROLPLANE0 sortega-konvoy183-centos79-cp0
+$CONTROLPLANE1 sortega-konvoy183-centos79-cp1
+$CONTROLPLANE2 sortega-konvoy183-centos79-cp2
+$WORKER0 sortega-konvoy183-centos79-w0
+$WORKER1 sortega-konvoy183-centos79-w1
+$WORKER2 sortega-konvoy183-centos79-w2
+$WORKER3 sortega-konvoy183-centos79-w3
+EOF
