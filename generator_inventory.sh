@@ -39,11 +39,11 @@ EOF
 envsubst < inventory.yaml
 
 cat <<EOF >> /etc/hosts
-$CONTROLPLANE0 sortega-konvoy183-centos79-cp0
-$CONTROLPLANE1 sortega-konvoy183-centos79-cp1
-$CONTROLPLANE2 sortega-konvoy183-centos79-cp2
-$WORKER0 sortega-konvoy183-centos79-w0
-$WORKER1 sortega-konvoy183-centos79-w1
-$WORKER2 sortega-konvoy183-centos79-w2
-$WORKER3 sortega-konvoy183-centos79-w3
+$CONTROLPLANE0 $TF_VAR_cluster_name-cp0
+$CONTROLPLANE1 $TF_VAR_cluster_name-cp1
+$CONTROLPLANE2 $TF_VAR_cluster_name-cp2
+$WORKER0 $TF_VAR_cluster_name-w0
+$WORKER1 $TF_VAR_cluster_name-w1
+$WORKER2 $TF_VAR_cluster_name-w2
+$WORKER3 $TF_VAR_cluster_name-w3
 EOF
