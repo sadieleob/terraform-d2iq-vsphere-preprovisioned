@@ -32,8 +32,8 @@ resource "vsphere_virtual_machine" "cp" {
   folder           = var.folder
   num_cpus = 4
   memory   = 16384
-  guest_id = "centos7_64Guest"
-  firmware = "bios"
+  guest_id = var.guest_id
+  firmware = var.firmware
   network_interface {
     network_id = data.vsphere_network.network.id
   }
@@ -41,6 +41,11 @@ resource "vsphere_virtual_machine" "cp" {
     label       = "disk0.vmdk"
     unit_number = 0
     size        = 100
+  }
+  disk {
+    label       = "disk1.vmdk"
+    unit_number = 1
+    size        = 40
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
@@ -67,8 +72,8 @@ resource "vsphere_virtual_machine" "w" {
   folder           = var.folder
   num_cpus = 8
   memory   = 32768
-  guest_id = "centos7_64Guest"
-  firmware = "bios"
+  guest_id = var.guest_id
+  firmware = var.firmware
   network_interface {
     network_id = data.vsphere_network.network.id
   }
@@ -101,6 +106,11 @@ resource "vsphere_virtual_machine" "w" {
     label       = "disk5.vmdk"
     unit_number = 5
     size        = 80
+  }
+  disk {
+    label       = "disk6.vmdk"
+    unit_number = 6
+    size        = 40
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id

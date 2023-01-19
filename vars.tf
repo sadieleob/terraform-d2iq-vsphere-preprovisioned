@@ -17,6 +17,10 @@ variable "folder" {
         default = ""
 }
 
+variable "guest_id" {
+        default = ""
+}
+
 variable "network" {
         default = ""
 }
