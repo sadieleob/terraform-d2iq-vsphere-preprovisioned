@@ -21,6 +21,10 @@ variable "guest_id" {
         default = ""
 }
 
+variable "firmware" {
+        default = ""
+}
+
 variable "network" {
         default = ""
 }

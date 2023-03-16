@@ -40,12 +40,12 @@ resource "vsphere_virtual_machine" "cp" {
   disk {
     label       = "disk0.vmdk"
     unit_number = 0
-    size        = 100
+    size        = 150
   }
   disk {
     label       = "disk1.vmdk"
     unit_number = 1
-    size        = 40
+    size        = 60
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
@@ -110,7 +110,7 @@ resource "vsphere_virtual_machine" "w" {
   disk {
     label       = "disk6.vmdk"
     unit_number = 6
-    size        = 40
+    size        = 60
   }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id

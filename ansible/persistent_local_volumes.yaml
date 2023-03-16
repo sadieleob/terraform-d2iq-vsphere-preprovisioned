@@ -1,0 +1,5 @@
+- hosts: dkp_all_nodes
+  tasks:
+    - name: Run a script to configure persistent local volumes in worker nodes
+      script:
+        cmd: persistent_local_volumes.sh

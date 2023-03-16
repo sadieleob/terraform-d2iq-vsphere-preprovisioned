@@ -1,0 +1,6 @@
+- hosts: dkp_all_nodes
+  tasks:
+    - name: Forcing System Clock Synchronization
+      command: /usr/bin/chronyc -a makestep        
+    - name: Restart Chronyd Service
+      command: /usr/bin/systemctl restart chronyd
