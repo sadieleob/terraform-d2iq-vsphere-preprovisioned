@@ -1,21 +1,21 @@
 control-plane:
   hosts:
-    10.129.5.3:
+    10.129.2.136:
       node_pool: master
-    10.129.4.251:
+    10.129.2.135:
       node_pool: master
-    10.129.4.244:
+    10.129.2.128:
       node_pool: master
 
 node:
   hosts:
-    10.129.4.246:
+    10.129.2.129:
       node_pool: worker
-    10.129.4.228:
+    10.129.2.140:
       node_pool: worker
-    10.129.4.248:
+    10.129.2.134:
       node_pool: worker
-    10.129.4.249:
+    10.129.2.132:
       node_pool: worker
 
 all:

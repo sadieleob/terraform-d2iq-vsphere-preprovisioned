@@ -47,6 +47,11 @@ resource "vsphere_virtual_machine" "cp" {
     unit_number = 1
     size        = 60
   }
+  disk {
+    label       = "disk2.vmdk"
+    unit_number = 2
+    size        = 60
+  }
   clone {
     template_uuid = data.vsphere_virtual_machine.template.id
     customize {

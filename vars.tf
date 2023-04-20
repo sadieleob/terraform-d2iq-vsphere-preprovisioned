@@ -41,3 +41,14 @@ variable "datastore" {
 variable "template" {
         default = ""
 }
+
+variable "custom_attribute_owner" {
+  description = "Similar to cloud owner tag"
+  type        = string
+}
+
+variable "custom_attribute_expiration" {
+  description = "Similar to cloud expiration tag"
+  type        = string
+  default     = ""
+}
